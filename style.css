@@ -293,3 +293,10 @@ section {
     max-width: 180px;
   }
 }
+/* ============================= */
+/* EXTRA BOTTOM SPACING */
+/* ============================= */
+
+.services-section {
+  margin-bottom: 100px; /* dagdag space bago footer */
+}
