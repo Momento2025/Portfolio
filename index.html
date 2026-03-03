@@ -10,6 +10,10 @@
 
 <body>
 
+  <!-- ===== BACKGROUND LAYERS ===== -->
+  <div class="cad-rotate-bg"></div>
+  <div class="cursor-glow"></div>
+
   <!-- ===== FLOATING NAVBAR ===== -->
   <nav class="navbar">
     <ul class="nav-links">
@@ -166,6 +170,7 @@
   <script>
     const scrollBtn = document.getElementById("scrollTopBtn");
     const navbar = document.querySelector(".navbar");
+    const glow = document.querySelector(".cursor-glow");
 
     /* Scroll To Top Button */
     window.addEventListener("scroll", () => {
@@ -196,6 +201,12 @@
       }
 
       lastScroll = currentScroll;
+    });
+
+    /* Interactive Mouse Glow */
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
     });
   </script>
 
