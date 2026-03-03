@@ -16,22 +16,21 @@ html, body {
 }
 
 /* ============================= */
-/* ULTRA MINIMAL BACKGROUND */
+/* ROTATING CAD BACKGROUND */
 /* ============================= */
 
-body::before {
-  content: "";
+.cad-rotate-bg {
   position: fixed;
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
-  border: 1px solid rgba(255,255,255,0.05);
   border-radius: 50%;
-  animation: rotateCAD 40s linear infinite;
-  z-index: -1;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 70%);
+  animation: rotateCAD 50s linear infinite;
+  z-index: -2;
 }
 
 @keyframes rotateCAD {
@@ -43,48 +42,42 @@ body::before {
 /* NAVBAR */
 /* ============================= */
 
-header {
+.navbar {
   position: fixed;
   width: 100%;
   top: 0;
   backdrop-filter: blur(12px);
-  background: rgba(15, 17, 21, 0.6);
+  background: rgba(15, 17, 21, 0.7);
   border-bottom: 1px solid rgba(255,255,255,0.05);
   z-index: 1000;
+  transition: transform 0.4s ease;
 }
 
-nav {
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+.nav-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 8%;
-}
-
-nav h1 {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-nav ul {
-  display: flex;
+  justify-content: center;
+  gap: 40px;
   list-style: none;
-  gap: 30px;
+  padding: 18px 0;
 }
 
-nav ul li a {
+.nav-links a {
   text-decoration: none;
   color: #aaa;
   font-size: 14px;
-  transition: 0.3s ease;
   position: relative;
+  transition: 0.3s ease;
 }
 
-nav ul li a:hover {
+.nav-links a:hover {
   color: #fff;
 }
 
-nav ul li a::after {
+.nav-links a::after {
   content: "";
   position: absolute;
   width: 0%;
@@ -95,8 +88,33 @@ nav ul li a::after {
   transition: 0.3s;
 }
 
-nav ul li a:hover::after {
+.nav-links a:hover::after {
   width: 100%;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero {
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.headline {
+  font-size: 18px;
+  color: #aaa;
 }
 
 /* ============================= */
@@ -104,18 +122,17 @@ nav ul li a:hover::after {
 /* ============================= */
 
 section {
-  padding: 140px 10% 100px 10%;
+  padding: 120px 10%;
 }
 
 section h2 {
   text-align: center;
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 30px;
+  font-size: 32px;
+  margin-bottom: 40px;
   position: relative;
 }
 
-/* FIXED UNDERLINE SIZE */
+/* Clean underline fix */
 section h2::after {
   content: "";
   display: block;
@@ -127,48 +144,42 @@ section h2::after {
 }
 
 /* ============================= */
-/* HERO SECTION */
+/* ABOUT */
 /* ============================= */
 
-.hero {
+.two-column {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 60px;
-  min-height: 100vh;
+  flex-wrap: wrap;
 }
 
-.hero img {
-  width: 280px;
+.about-avatar img {
+  width: 260px;
   border-radius: 20px;
   filter: grayscale(100%);
   transition: 0.4s ease;
 }
 
-.hero img:hover {
+.about-avatar img:hover {
   filter: grayscale(0%);
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-.hero-text {
-  max-width: 600px;
-}
-
-.hero-text p {
+.about-text {
+  flex: 1;
   line-height: 1.8;
-  font-size: 16px;
   color: #bbb;
 }
 
 /* ============================= */
-/* SERVICES */
+/* SKILLS */
 /* ============================= */
 
-.services {
+.three-column {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  margin-top: 50px;
 }
 
 .card {
@@ -189,27 +200,82 @@ section h2::after {
   font-size: 18px;
 }
 
-.card p {
+.card p,
+.card li {
   font-size: 14px;
   color: #aaa;
   line-height: 1.6;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* ============================= */
+/* PROJECTS */
+/* ============================= */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.projects img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* ============================= */
+/* SERVICES */
+/* ============================= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
 /* ============================= */
 /* FOOTER */
 /* ============================= */
 
-footer {
+.site-footer {
   text-align: center;
   padding: 60px 20px;
   border-top: 1px solid rgba(255,255,255,0.05);
   color: #777;
   font-size: 14px;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 /* ============================= */
-/* INTERACTIVE MOUSE FOLLOW */
+/* SCROLL TO TOP */
+/* ============================= */
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+}
+
+/* ============================= */
+/* INTERACTIVE MOUSE GLOW */
 /* ============================= */
 
 .cursor-glow {
