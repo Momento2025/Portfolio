@@ -79,6 +79,25 @@ body::after {
 }
 
 /* ============================= */
+/* HAND WAVE ANIMATION (FIXED) */
+/* ============================= */
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: handWave 2s ease-in-out infinite;
+}
+
+@keyframes handWave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(14deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ============================= */
 /* GLOBAL SECTION STYLE */
 /* ============================= */
 section {
