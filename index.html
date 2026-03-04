@@ -22,6 +22,7 @@
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#tools">Tools</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#services">Services</a></li>
@@ -68,46 +69,46 @@
         </div>
       </div>
     </section>
-<!-- ============================= -->
-<!-- TOOLS SECTION -->
-<!-- ============================= -->
-<section id="tools" class="tools-section">
-  <div class="container">
 
-    <h2 class="section-title">Engineering Tools</h2>
-    <p class="section-subtitle">
-      Professional CAD & CAE software I use in mechanical design and analysis.
-    </p>
+    <!-- ===== TOOLS ===== -->
+    <section id="tools" class="tools-section reveal">
+      <div class="container">
 
-    <div class="tools-grid">
+        <h2 class="section-title">Engineering Tools</h2>
+        <p class="section-subtitle">
+          Professional CAD & CAE software I use in mechanical design and analysis.
+        </p>
 
-      <div class="tool-card">
-        <div class="tool-icon">⚙</div>
-        <h3>CATIA</h3>
-        <p>Advanced surface modeling, complex assemblies, and production-ready design workflows.</p>
+        <div class="tools-grid">
+
+          <div class="tool-card">
+            <div class="tool-icon">⚙</div>
+            <h3>CATIA</h3>
+            <p>Advanced surface modeling, complex assemblies, and production-ready design workflows.</p>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-icon">🛠</div>
+            <h3>SolidWorks</h3>
+            <p>Parametric modeling, simulation, sheet metal, and manufacturing drawings.</p>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-icon">📊</div>
+            <h3>Beta CAE</h3>
+            <p>Pre-processing, meshing, structural simulation setup and validation.</p>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-icon">📐</div>
+            <h3>AutoCAD</h3>
+            <p>2D drafting, layout detailing, dimensioning, and engineering documentation.</p>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <div class="tool-card">
-        <div class="tool-icon">🛠</div>
-        <h3>SolidWorks</h3>
-        <p>Parametric modeling, simulation, sheet metal, and manufacturing drawings.</p>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-icon">📊</div>
-        <h3>Beta CAE</h3>
-        <p>Pre-processing, meshing, structural simulation setup and validation.</p>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-icon">📐</div>
-        <h3>AutoCAD</h3>
-        <p>2D drafting, layout detailing, dimensioning, and engineering documentation.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
     <!-- ===== SKILLS ===== -->
     <section class="skills reveal" id="skills">
       <h2>Skills</h2>
@@ -210,12 +211,10 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
-
     const scrollBtn = document.getElementById("scrollTopBtn");
     const navbar = document.querySelector(".navbar");
     const glow = document.querySelector(".cursor-glow");
 
-    /* Scroll To Top Button */
     window.addEventListener("scroll", () => {
       scrollBtn.classList.toggle("show", window.scrollY > 300);
     });
@@ -224,7 +223,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    /* Hide Navbar On Scroll Down */
     let lastScroll = 0;
     window.addEventListener("scroll", () => {
       let currentScroll = window.pageYOffset;
@@ -238,13 +236,11 @@
       lastScroll = currentScroll;
     });
 
-    /* Cursor Glow */
     document.addEventListener("mousemove", (e) => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     });
 
-    /* Scroll Reveal */
     function revealOnScroll() {
       const reveals = document.querySelectorAll(".reveal");
 
@@ -261,10 +257,6 @@
 
     window.addEventListener("scroll", revealOnScroll);
     window.addEventListener("load", revealOnScroll);
-
-    /* ============================= */
-    /* FLOATING GEOMETRY NODES */
-    /* ============================= */
 
     const canvas = document.getElementById("geometryCanvas");
     const ctx = canvas.getContext("2d");
@@ -339,9 +331,7 @@
     }
 
     animate();
-
   </script>
 
 </body>
 </html>
-
