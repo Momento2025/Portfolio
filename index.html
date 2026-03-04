@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Engr Kenneth James Correa Duapa | Mechanical Engineer Portfolio</title>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="IMAGES/ICON.jpg" />
 </head>
 
 <body>
 
-  <!-- ===== BACKGROUND LAYERS ===== -->
+  <!-- ===== BACKGROUND ===== -->
   <div class="cad-rotate-bg"></div>
   <div class="cursor-glow"></div>
 
-  <!-- ===== FLOATING NAVBAR ===== -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
@@ -36,14 +37,14 @@
   <main>
 
     <!-- ===== ABOUT ===== -->
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
       <div class="about-content two-column">
         <div class="about-avatar">
           <img src="IMAGES/AVATAG.png" alt="Kenneth Avatar" />
         </div>
 
         <div class="about-text">
-          <h2 class="intro-heading">
+          <h2>
             LET ME INTRODUCE MYSELF
             <span class="wave">👋</span>
           </h2>
@@ -67,7 +68,7 @@
     </section>
 
     <!-- ===== SKILLS ===== -->
-    <section class="skills" id="skills">
+    <section class="skills reveal" id="skills">
       <h2>Skills</h2>
 
       <div class="skills-list three-column">
@@ -106,7 +107,7 @@
     </section>
 
     <!-- ===== PROJECTS ===== -->
-    <section class="projects-section" id="projects">
+    <section class="projects-section reveal" id="projects">
       <h2>Projects</h2>
 
       <div class="projects">
@@ -133,7 +134,7 @@
     </section>
 
     <!-- ===== SERVICES ===== -->
-    <section class="services-section" id="services">
+    <section class="services-section reveal" id="services">
       <h2>Services</h2>
 
       <div class="services">
@@ -168,6 +169,7 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
+
     const scrollBtn = document.getElementById("scrollTopBtn");
     const navbar = document.querySelector(".navbar");
     const glow = document.querySelector(".cursor-glow");
@@ -203,33 +205,31 @@
       lastScroll = currentScroll;
     });
 
-    /* Interactive Mouse Glow */
+    /* Cursor Glow Follow */
     document.addEventListener("mousemove", (e) => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     });
+
+    /* Scroll Reveal Animation */
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll(".reveal");
+
+      reveals.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const revealTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
   </script>
-  
-<script>
-  /* Scroll Reveal Animation */
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
 
-    reveals.forEach((element) => {
-      const windowHeight = window.innerHeight;
-      const revealTop = element.getBoundingClientRect().top;
-      const revealPoint = 100;
-
-      if (revealTop < windowHeight - revealPoint) {
-        element.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-  window.addEventListener("load", revealOnScroll);
-</script>
-  
 </body>
 </html>
-
