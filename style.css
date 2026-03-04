@@ -304,3 +304,13 @@ section h2 {
   z-index: -4;
   pointer-events: none;
 }
+/* ============================= */
+/* SUBTLE PARALLAX SYSTEM */
+/* ============================= */
+
+.blueprint-grid,
+#geometryCanvas,
+.cad-rotate-bg {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
