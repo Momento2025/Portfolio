@@ -11,7 +11,9 @@
 
 <body>
 
-  <!-- ===== BACKGROUND ===== -->
+  <!-- ===== BACKGROUND LAYERS ===== -->
+  <div class="blueprint-grid"></div>
+  <canvas id="geometryCanvas"></canvas>
   <div class="cad-rotate-bg"></div>
   <div class="cursor-glow"></div>
 
@@ -97,7 +99,7 @@
         <div class="card skill-group">
           <h3>Engineering Essentials</h3>
           <ul>
-            <li>GD&T Basics</li>
+            <li>GD&amp;T Basics</li>
             <li>Design for Manufacturability</li>
             <li>Quality Checks</li>
           </ul>
@@ -176,23 +178,15 @@
 
     /* Scroll To Top Button */
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
+      scrollBtn.classList.toggle("show", window.scrollY > 300);
     });
 
     scrollBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     /* Hide Navbar On Scroll Down */
     let lastScroll = 0;
-
     window.addEventListener("scroll", () => {
       let currentScroll = window.pageYOffset;
 
@@ -205,13 +199,13 @@
       lastScroll = currentScroll;
     });
 
-    /* Cursor Glow Follow */
+    /* Cursor Glow */
     document.addEventListener("mousemove", (e) => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     });
 
-    /* Scroll Reveal Animation */
+    /* Scroll Reveal */
     function revealOnScroll() {
       const reveals = document.querySelectorAll(".reveal");
 
@@ -228,6 +222,84 @@
 
     window.addEventListener("scroll", revealOnScroll);
     window.addEventListener("load", revealOnScroll);
+
+    /* ============================= */
+    /* FLOATING GEOMETRY NODES */
+    /* ============================= */
+
+    const canvas = document.getElementById("geometryCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    let nodes = [];
+    const NODE_COUNT = 60;
+
+    class Node {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = (Math.random() - 0.5) * 0.6;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,240,255,0.6)";
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < NODE_COUNT; i++) {
+      nodes.push(new Node());
+    }
+
+    function connectNodes() {
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 120) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = "rgba(0,240,255,0.08)";
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      nodes.forEach(node => {
+        node.move();
+        node.draw();
+      });
+
+      connectNodes();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
 
   </script>
 
