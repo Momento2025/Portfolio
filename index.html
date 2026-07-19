@@ -26,6 +26,7 @@
       <li><a href="#skills">SKILLS</a></li>
       <li><a href="#projects">PROJECTS</a></li>
       <li><a href="#services">SERVICES</a></li>
+      <li><a href="#contact">CONTACT</a></li>
     </ul>
   </nav>
 
@@ -35,6 +36,7 @@
     <p class="headline">
       Mechanical Engineer | Automotive CAD & CAE Design Support
     </p>
+    <a href="#contact" class="hero-cta">Let's Work Together →</a>
   </header>
 
   <main>
@@ -53,18 +55,27 @@
           </h2>
 
           <p>
-            I’m Kenneth, a Mechanical Engineer with 5 years of hands-on experience in automotive design and technical support.
-            My primary design tool is CATIA, where I create accurate and manufacturable 3D models and 2D drawings for resin and metal components.
+            I'm Kenneth, a Senior CAD Engineer with 5 years of hands-on experience in the automotive industry,
+            currently designing seat and interior trim components — from seat back and cushion pads to plastic
+            covers and metal structural parts, as well as door lining components including lower base, armrest
+            pocket cover, pull pocket, and upper base.
           </p>
 
           <p>
-            I also have experience in Beta CAE (ANSA), working on geometry cleanup, midsurface extraction, meshing, and quality checks
-            to support CAE and simulation requirements. In addition, I use SolidWorks for 3D modeling and basic analysis.
+            My primary tool is CATIA, where I build accurate, manufacturable 3D models and 2D drawings for resin
+            and metal components — designs that have to survive real tolerance stacks, tooling constraints, and
+            supplier reviews, not just look good on screen.
           </p>
 
           <p>
-            I focus on clean design data, manufacturability, and practical solutions that help projects move efficiently
-            from concept to production. Let’s work together to turn your ideas into reality.
+            I also work in Beta CAE (ANSA) for geometry cleanup, midsurface extraction, and meshing to support CAE
+            and simulation teams, and I use SolidWorks for 3D modeling and basic analysis when a project calls for it.
+          </p>
+
+          <p>
+            What I bring to a project isn't just CAD skill — it's an eye for manufacturability and clean design
+            data, built from real production experience. If you need a design partner who can take a concept from
+            sketch to production-ready drawing without rework loops, let's talk.
           </p>
         </div>
       </div>
@@ -158,8 +169,8 @@
           <img src="IMAGES/project1.jpg" alt="Gaming Mouse Design" />
           <h3>GAMING MOUSE DESIGN</h3>
           <p>
-            This is a personalized project assembly created in CATIA V5 
-            to demonstrate the assembly structure and visualization of the component.
+            Designed a fully modeled gaming mouse assembly in CATIA V5, built to demonstrate multi-part
+            assembly structure, surface continuity, and ergonomic form modeling.
           </p>
         </div>
 
@@ -167,8 +178,8 @@
           <img src="IMAGES/project2.jpg" alt="Side Bracket Design" />
           <h3>SIDE BRACKET STUDY</h3>
           <p>
-            Personal CAD study project focused on modeling,
-            drafting standards, and manufacturability.
+            Modeled and drafted a structural bracket to industry drafting standards (GD&amp;T, tolerancing,
+            manufacturing callouts), with design choices driven by real-world manufacturability constraints.
           </p>
         </div>
 
@@ -176,8 +187,9 @@
           <img src="IMAGES/CAE.jpg" alt="CAE Meshing Project" />
           <h3>SIDE BRACKET MESHING</h3>
           <p>
-            Demonstrates proficiency in ANSA through geometry repair, midsurface generation,
-            and achieving quality mesh criteria for simulation.
+            Took the bracket geometry above through a full CAE-prep workflow in ANSA: geometry repair,
+            midsurface extraction, and meshing to meet quality criteria for structural simulation — the
+            CAD-to-CAE handoff that gets a model into a solver without errors.
           </p>
         </div>
 
@@ -185,14 +197,15 @@
           <img src="IMAGES/SUN GLASSES CASE.jpg" alt="Sun Glasses Case" />
           <h3>SUN GLASSES CASE</h3>
           <p>
-            A simple SolidWorks project showcasing surface modeling and clean part design.
+            Surface-modeled a two-part sunglasses case in SolidWorks, focused on clean parting lines and
+            draft-ready geometry for injection molding — a compact concept-to-moldable-part example.
           </p>
         </div>
 
       </div>
     </section>
 
-    <!-- ===== SERVICES (UPDATED ONLY) ===== -->
+    <!-- ===== SERVICES ===== -->
     <section class="services-section reveal" id="services">
       <h2>SERVICES</h2>
 
@@ -233,8 +246,8 @@
         <div class="card">
           <h3>Automotive Component Design</h3>
           <p>
-            Design of automotive parts including seat components, brackets, and interior structures
-            based on real industry experience.
+            Design of automotive seat and interior trim components — seat back and cushion pads, plastic
+            covers, metal structural parts, and door lining details — based on real production experience.
           </p>
         </div>
 
@@ -249,6 +262,23 @@
       </div>
     </section>
 
+    <!-- ===== CONTACT / CTA ===== -->
+    <section class="contact-section reveal" id="contact">
+      <h2>LET'S WORK TOGETHER</h2>
+      <p class="contact-subtitle">
+        Have a design that needs to move from concept to production-ready? I'd love to hear about it.
+      </p>
+
+      <div class="contact-buttons">
+        <a href="https://www.upwork.com/freelancers/~013187ec6205d7a839" target="_blank" rel="noopener" class="contact-btn primary">
+          Hire Me on Upwork →
+        </a>
+        <a href="https://www.linkedin.com/in/engrkennethjamescorreaduapa/" target="_blank" rel="noopener" class="contact-btn">
+          Connect on LinkedIn →
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -260,128 +290,7 @@
   <button id="scrollTopBtn" title="Back to top">↑</button>
 
   <!-- ===== SCRIPTS ===== -->
-  <script>
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    const navbar = document.querySelector(".navbar");
-    const glow = document.querySelector(".cursor-glow");
-
-    window.addEventListener("scroll", () => {
-      scrollBtn.classList.toggle("show", window.scrollY > 300);
-    });
-
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    let lastScroll = 0;
-    window.addEventListener("scroll", () => {
-      let currentScroll = window.pageYOffset;
-
-      if (currentScroll > lastScroll && currentScroll > 80) {
-        navbar.classList.add("hide");
-      } else {
-        navbar.classList.remove("hide");
-      }
-
-      lastScroll = currentScroll;
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      glow.style.left = e.clientX + "px";
-      glow.style.top = e.clientY + "px";
-    });
-
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll(".reveal");
-
-      reveals.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const revealTop = element.getBoundingClientRect().top;
-        const revealPoint = 100;
-
-        if (revealTop < windowHeight - revealPoint) {
-          element.classList.add("active");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-
-    const canvas = document.getElementById("geometryCanvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    let nodes = [];
-    const NODE_COUNT = 60;
-
-    class Node {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.6;
-        this.vy = (Math.random() - 0.5) * 0.6;
-      }
-
-      move() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,240,255,0.6)";
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < NODE_COUNT; i++) {
-      nodes.push(new Node());
-    }
-
-    function connectNodes() {
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 120) {
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = "rgba(0,240,255,0.08)";
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      nodes.forEach(node => {
-        node.move();
-        node.draw();
-      });
-
-      connectNodes();
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
